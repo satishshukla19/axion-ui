@@ -46,7 +46,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t acrmicroservicesprod001.azurecr.io/axion-ui:V1 .
+          docker build -t acrmicroservicesprod001.azurecr.io/axion-ui:V2 .
 
       - name: Push Image to ACR
         run: |
