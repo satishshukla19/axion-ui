@@ -31,7 +31,7 @@ jobs:
       - name: Azure Login
         uses: azure/login@v2
         with:
-          client-id: e7186a74-37ad-4a84-a245-adbc2a82916e
+          client-id: 0125ae9e-0326-45f3-8b95-bbf4719b7514
           tenant-id: 6f3dd6ca-22ac-4502-94be-48e8cb061c33
           subscription-id: 5deb291d-199b-4e8c-a522-d3f6f5f9c776
           # creds: ${{ secrets.AZURE_CREDENTIALS }}
