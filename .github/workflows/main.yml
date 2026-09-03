@@ -1,0 +1,59 @@
+name: Deploy Application to AKS
+
+on:
+  push:
+    branches:
+      - main
+
+# env:
+#   ACR_NAME: acrmicroservicesprod001
+#   IMAGE_NAME: axion-ui
+#   AKS_RESOURCE_GROUP: your-resource-group
+#   AKS_CLUSTER_NAME: your-aks-cluster
+
+jobs:
+  build-deploy:
+
+    runs-on: satish-test-linux
+
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          client-id: e7186a74-37ad-4a84-a245-adbc2a82916e
+          tenant-id: 6f3dd6ca-22ac-4502-94be-48e8cb061c33
+          subscription-id: 5deb291d-199b-4e8c-a522-d3f6f5f9c776
+          # creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Login to ACR
+        run: |
+          az acr login --name acrmicroservicesprod001
+
+      - name: Build Docker Image
+        run: |
+          docker build -t acrmicroservicesprod001.azurecr.io/axion-ui:V1 .
+
+      - name: Push Image to ACR
+        run: |
+          docker push acrmicroservicesprod001.azurecr.io/axion-ui
+
+      # - name: Get AKS Credentials
+      #   run: |
+      #     az aks get-credentials \
+      #       --resource-group $AKS_RESOURCE_GROUP \
+      #       --name $AKS_CLUSTER_NAME \
+      #       --overwrite-existing
+
+      # - name: Deploy to AKS
+      #   run: |
+      #     kubectl set image deployment/axionui-deployment \
+      #       axion-ui=$ACR_NAME.azurecr.io/$IMAGE_NAME:${{ github.sha }}
+
+      # - name: Verify Deployment
+      #   run: |
+      #     kubectl rollout status deployment/axionui-deployment
+      #     kubectl get pods
