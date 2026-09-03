@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - main
-
+      
+permissions:
+  id-token: write
+  contents: read
 # env:
 #   ACR_NAME: acrmicroservicesprod001
 #   IMAGE_NAME: axion-ui
