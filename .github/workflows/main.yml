@@ -36,6 +36,10 @@ jobs:
           subscription-id: 5deb291d-199b-4e8c-a522-d3f6f5f9c776
           # creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      - name: Check Azure Account
+        run: |
+          az account show
+          
       - name: Login to ACR
         run: |
           az acr login --name acrmicroservicesprod001
