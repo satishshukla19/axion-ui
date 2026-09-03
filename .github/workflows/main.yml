@@ -8,6 +8,7 @@ on:
 permissions:
   id-token: write
   contents: read
+  
 # env:
 #   ACR_NAME: acrmicroservicesprod001
 #   IMAGE_NAME: axion-ui
