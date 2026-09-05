@@ -15,11 +15,12 @@ spec:
         app: nginx4
     spec:
       containers:
-      - name: axionui
-        image: satishregistry001.azurecr.io/axion-ui:V3
-        ports:
-        - containerPort: 80
-
+        - name: axionui
+          image: satishregistry001.azurecr.io/axion-ui:V3
+          ports:
+            - containerPort: 80
+image:
+  tag: "16"
 ---
 apiVersion: v1
 kind: Service
@@ -33,3 +34,5 @@ spec:
       port: 80
       targetPort: 80
   type: LoadBalancer
+image:
+  tag: "16"
