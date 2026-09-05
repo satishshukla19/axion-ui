@@ -46,11 +46,11 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t satishregistry001.azurecr.io/axion-ui:V2 .
+          docker build -t satishregistry001.azurecr.io/axion-ui:V3 .
 
       - name: Push Image to ACR
         run: |
-          docker push satishregistry001.azurecr.io/axion-ui:V2
+          docker push satishregistry001.azurecr.io/axion-ui:V3
 
       # - name: Get AKS Credentials
       #   run: |
