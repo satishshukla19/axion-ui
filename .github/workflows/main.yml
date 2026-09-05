@@ -42,15 +42,15 @@ jobs:
           
       - name: Login to ACR
         run: |
-          az acr login --name acrmicroservicesprod001
+          az acr login --name satishregistry001
 
       - name: Build Docker Image
         run: |
-          docker build -t acrmicroservicesprod001.azurecr.io/axion-ui:V2 .
+          docker build -t satishregistry001.azurecr.io/axion-ui:V2 .
 
       - name: Push Image to ACR
         run: |
-          docker push acrmicroservicesprod001.azurecr.io/axion-ui
+          docker push satishregistry001.azurecr.io/axion-ui
 
       # - name: Get AKS Credentials
       #   run: |
