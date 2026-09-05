@@ -5,8 +5,8 @@ on:
     branches: [main]
   workflow_dispatch:
 
-env:
-  DOCKER_IMAGE: devopsinsiders/axion-ui
+# env:
+#   DOCKER_IMAGE: devopsinsiders/axion-ui
 
 jobs:
   build-and-push:
