@@ -50,7 +50,7 @@ jobs:
 
       - name: Push Image to ACR
         run: |
-          docker push satishregistry001.azurecr.io/axion-ui
+          docker push satishregistry001.azurecr.io/axion-ui:V2
 
       # - name: Get AKS Credentials
       #   run: |
