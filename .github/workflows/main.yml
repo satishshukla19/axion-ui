@@ -121,10 +121,10 @@ jobs:
       # 10. Check values.yaml
       # ============================================================
 
-      - name: Check values.yaml
+      - name: Check k8s/diployment.yml
         run: |
-          echo "Current values.yaml:"
-          cat values.yaml
+          echo "Current k8s/diployment.yml:"
+          cat k8s/diployment.yml
 
       # ============================================================
       # 11. Update Image Tag in values.yaml
@@ -135,10 +135,10 @@ jobs:
 
           yq e \
             '.image.tag = "${{ github.run_number }}"' \
-            -i values.yaml
+            -i k8s/diployment.yml
 
-          echo "Updated values.yaml:"
-          cat values.yaml
+          echo "Updated k8s/diployment.yml:"
+          cat k8s/diployment.yml
 
       # ============================================================
       # 12. Check Git Difference
@@ -147,7 +147,7 @@ jobs:
       - name: Check Git Changes
         run: |
           git status
-          git diff -- values.yaml
+          git diff -- k8s/diployment.yml
 
       # ============================================================
       # 13. Commit Updated values.yaml
@@ -161,7 +161,7 @@ jobs:
           git config user.email \
             "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add values.yaml
+          git add k8s/diployment.yml
 
           git commit \
             -m "Update axion-ui image tag to ${{ github.run_number }}" \
